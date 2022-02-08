@@ -20,22 +20,18 @@ namespace DatabaseProgrammingWithADODemos
 
             // Want to Add new contact information
 
-            Contact c = new Contact();
-            Console.Write("Enter Contact Name: ");
-            c.Name = Console.ReadLine();
-            Console.Write("Enter Mobile Number: ");
-            c.Mobile = Console.ReadLine();
-            Console.Write("Enter Email: ");
-            c.Email = Console.ReadLine();
-            Console.Write("Enter Location: ");
-            c.Location = Console.ReadLine();
-
+           
 
             IContactsRepository repo = new ContactsRepository();
-            repo.SaveContact(c);
+           
 
+            List<Contact> contacts = repo.GetContacts();
+            foreach (var c in contacts)
+            {
+                Console.WriteLine(c.Name);
+            }
 
-            Console.WriteLine("Contact successffully saved");
+           
             Console.ReadLine();
 
         }

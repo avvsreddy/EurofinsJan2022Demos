@@ -5,7 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using System.Data.SqlClient;
+//using System.Data.SqlClient;
+using System.Configuration;
+//using System.Data.OleDb;
+using System.Data;
+using System.Data.Common;
 
 namespace DatabaseProgrammingWithADODemos.DataAccess
 {
@@ -13,9 +17,17 @@ namespace DatabaseProgrammingWithADODemos.DataAccess
     {
         public bool DeleteContact(int contactId)
         {
-            SqlConnection conn = GetConnection();
-            string sqlDelete = $"delete contacts where contactid = {contactId}";
-            SqlCommand cmd = new SqlCommand(sqlDelete, conn);
+            IDbConnection conn = GetConnection();
+            string sqlDelete = "delete contacts where contactid = @cid";
+            IDbCommand cmd = conn.CreateCommand();
+            cmd.CommandText = sqlDelete;
+            cmd.Connection = conn;
+
+            IDbDataParameter p1 = cmd.CreateParameter();
+            p1.ParameterName = "@cid";
+            p1.Value = contactId;
+            cmd.Parameters.Add(p1);
+
             int c = 0;
             using (conn)
             {
@@ -28,6 +40,7 @@ namespace DatabaseProgrammingWithADODemos.DataAccess
 
         public Contact GetContactById(int contactId)
         {
+            
             SqlConnection conn = GetConnection();
             string selectSql = $"select * from contacts where contactid = {contactId}";
             SqlCommand cmd = new SqlCommand(selectSql, conn);
@@ -77,8 +90,19 @@ namespace DatabaseProgrammingWithADODemos.DataAccess
         public List<Contact> GetContactsByLocation(string location)
         {
             SqlConnection conn = GetConnection();
-            string selectSql = $"select * from contacts where location = {location}";
+
+            //location = "bangalore';delete contacts";
+
+            // string selectSql = $"select * from contacts where location = '{location}'";
+            string selectSql = "select * from contacts where location = @loc";
+            //string selectSql = $"select * from contacts where location = 'bangalore';delete contacts'"; // SQL Injection attack
             SqlCommand cmd = new SqlCommand(selectSql, conn);
+            //cmd.Parameters.AddWithValue("@loc", location);
+
+            SqlParameter p1 = new SqlParameter();
+            p1.ParameterName = "@loc";
+            p1.Value = location;
+            cmd.Parameters.Add(p1);
 
             List<Contact> contacts = new List<Contact>();
             using (conn)
@@ -119,9 +143,6 @@ namespace DatabaseProgrammingWithADODemos.DataAccess
             }
             return count > 0;
         }
-
-       
-
         public bool UpdateContact(Contact contact)
         {
             SqlConnection conn = GetConnection();
@@ -135,14 +156,14 @@ namespace DatabaseProgrammingWithADODemos.DataAccess
             }
             return count > 0;
         }
-
-
-
-        private static SqlConnection GetConnection()
+        private static IDbConnection GetConnection()
         {
-            SqlConnection sqlConnection = new SqlConnection();
-            sqlConnection.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Contacts2022DB;Integrated Security=True";
-            return sqlConnection;
+            string provider = ConfigurationManager.ConnectionStrings["default"].ProviderName;
+            DbProviderFactory factory =  DbProviderFactories.GetFactory(provider);
+            string connStr = ConfigurationManager.ConnectionStrings["default"].ConnectionString;
+            IDbConnection conn =  factory.CreateConnection();
+            conn.ConnectionString = connStr;
+            return conn;
         }
     }
 }
