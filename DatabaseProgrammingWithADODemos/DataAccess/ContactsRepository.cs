@@ -219,11 +219,26 @@ namespace DatabaseProgrammingWithADODemos.DataAccess
             cmd2.CommandText = update2;
             cmd2.Connection = conn;
             int count = 0;
+            IDbTransaction tx = null;
             try
             {
                 conn.Open();
+                tx = conn.BeginTransaction();
+                cmd1.Transaction = tx;
+                cmd2.Transaction = tx;
+
                 count += cmd1.ExecuteNonQuery();
+                // sdfsdsdf
+                // asdfsdfsdf/
+                //throw new Exception("Server error... try later");
+                // sdfsdfsdf
                 count += cmd2.ExecuteNonQuery();
+                tx.Commit();
+            }
+            catch(Exception ex)
+            {
+                tx.Rollback();
+                throw ex;
             }
             finally
             {
