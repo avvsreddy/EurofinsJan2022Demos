@@ -23,16 +23,8 @@ namespace DatabaseProgrammingWithADODemos
            
 
             IContactsRepository repo = new ContactsRepository();
-            try
-            {
-                bool isDone = repo.FundTransfer(111, 222, 1000);
-                if (isDone)
-                    Console.WriteLine("Fund transfer is done....");
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            int count = repo.GetContactsCount();
+            Console.WriteLine(count);
            
 
           

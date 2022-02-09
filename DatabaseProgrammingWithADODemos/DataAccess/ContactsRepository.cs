@@ -187,18 +187,19 @@ namespace DatabaseProgrammingWithADODemos.DataAccess
         public int GetContactsCountByLocation(string location)
         {
             IDbConnection conn = GetConnection();
-            string sqlCount = "select count(*) from contacts where location = @loc";
+            string sqlCount = "sp_get_contacts_countby_location";
             IDbCommand cmd = conn.CreateCommand();
             IDataParameter p = cmd.CreateParameter();
             p.ParameterName = "@loc";
             p.Value = location;
             cmd.Parameters.Add(p);
-
+            
             int count = 0;
             using (conn)
             {
                 conn.Open();
                 cmd.CommandText = sqlCount;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Connection = conn;
                 count = (int)cmd.ExecuteScalar();
             }
