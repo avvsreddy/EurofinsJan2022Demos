@@ -23,15 +23,11 @@ namespace DatabaseProgrammingWithADODemos
            
 
             IContactsRepository repo = new ContactsRepository();
-           
 
-            List<Contact> contacts = repo.GetContacts();
-            foreach (var c in contacts)
-            {
-                Console.WriteLine(c.Name);
-            }
 
-           
+            int count = repo.GetContactsCount();
+
+            Console.WriteLine(count);
             Console.ReadLine();
 
         }

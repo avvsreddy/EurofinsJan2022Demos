@@ -18,5 +18,11 @@ namespace DatabaseProgrammingWithADODemos.DataAccess
         List<Contact> GetContacts();
 
         List<Contact> GetContactsByLocation(string location);
+
+        int GetContactsCount();
+
+        int GetContactsCountByLocation(string location);
+
+        bool FundTransfer(int fromAccNo, int toAccNo, int amount);
     }
 }
