@@ -132,4 +132,33 @@ namespace POSWithDesignPatternsDemo
             return 450;
         }
     }
+
+
+    class UPTaxCalculator : ITaxCalculator
+    {
+        public double CalculateTax(double amount)
+        {
+            Console.WriteLine("Using UP Tax Calculator");
+            return 450;
+        }
+    }
+
+    class USTaxCalculator
+    {
+        public float ComputeTax(float amt)
+        {
+            // code for calculating US Tax
+            Console.WriteLine("Using US Tax Calculator");
+            return 450.5f;
+        }
+    }
+
+    class USTaxCalculatorAdaptor : ITaxCalculator
+    {
+        public double CalculateTax(double amount)
+        {
+            USTaxCalculator usTax = new USTaxCalculator();
+            return usTax.ComputeTax((float)amount);
+        }
+    }
 }
