@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIRecommandarCoreEngine", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PearsonRecommenderUnitTest", "PearsonRecommenderUnitTest\PearsonRecommenderUnitTest.csproj", "{9096BDBE-3031-4523-972E-749CCC2FD8BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIDataLoader", "AIDataLoader\AIDataLoader.csproj", "{E74ED215-D762-44AB-B6D1-479E5D0E908F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,10 @@ Global
 		{9096BDBE-3031-4523-972E-749CCC2FD8BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9096BDBE-3031-4523-972E-749CCC2FD8BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9096BDBE-3031-4523-972E-749CCC2FD8BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E74ED215-D762-44AB-B6D1-479E5D0E908F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E74ED215-D762-44AB-B6D1-479E5D0E908F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E74ED215-D762-44AB-B6D1-479E5D0E908F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E74ED215-D762-44AB-B6D1-479E5D0E908F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +121,7 @@ Global
 		{E5825E8A-5E8F-45E5-A3C0-084A8E37886C} = {0D7478F6-BFC4-4D8E-8CF2-9C445F3BE7E8}
 		{87B3BB51-224A-42C1-97A8-7FDC36825FC6} = {A22A832A-81A5-4326-998F-FB70EB3434F8}
 		{9096BDBE-3031-4523-972E-749CCC2FD8BA} = {A22A832A-81A5-4326-998F-FB70EB3434F8}
+		{E74ED215-D762-44AB-B6D1-479E5D0E908F} = {A22A832A-81A5-4326-998F-FB70EB3434F8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8EBF7831-6F01-467C-919F-EA5C3D0024B6}
