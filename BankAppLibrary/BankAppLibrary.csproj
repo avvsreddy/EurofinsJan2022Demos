@@ -44,6 +44,9 @@
     <Compile Include="Account.cs" />
     <Compile Include="AccountAlreadyClosedException.cs" />
     <Compile Include="AccountHasBalanceException.cs" />
+    <Compile Include="InactiveAccountException.cs" />
+    <Compile Include="IncorrectPinException.cs" />
+    <Compile Include="InsufficientBalanceException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
