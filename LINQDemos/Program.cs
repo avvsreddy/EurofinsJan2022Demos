@@ -56,6 +56,10 @@ namespace LINQDemos
             // 9. Get the name of the emp who is getting lowest salary
             var r9 = Emp.GetEmps().Where(e9 => e9.Salary == Emp.GetEmps().Min(e => e.Salary)).Select(e => e.Name);
 
+            var r99 = (from e9 in Emp.GetEmps()
+                       orderby e9.Salary 
+                       select e9.Name).FirstOrDefault();
+
             // 10. Get all employees name and salary who is getting salary more than 75k
             var r10 = from e10 in Emp.GetEmps()
                       where e10.Salary >= 75000
