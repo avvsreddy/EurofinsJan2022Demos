@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EFCodeFirstDemo.DAL.Product">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAQAAAIAAAACAAAQIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DAL\Product.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Catagory" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Suppliers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="EFCodeFirstDemo.DAL.Catagory">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>DAL\Catagory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Products" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="EFCodeFirstDemo.DAL.Supplier">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAQ=</HashCode>
+      <FileName>DAL\Supplier.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Address" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Products" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="EFCodeFirstDemo.DAL.Address">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABIAAAAAAAAAAAAAAAAAAIAAQAAAAA=</HashCode>
+      <FileName>DAL\Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EFCodeFirstDemo.DAL.Person">
+    <Position X="3.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>DAL\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EFCodeFirstDemo.DAL.Customer">
+    <Position X="6" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>DAL\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
