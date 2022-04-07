@@ -22,22 +22,32 @@ namespace ProductsCatalogLibrary
 
         public int EditProduct(Product productToEdit)
         {
-            throw new NotImplementedException();
+            db.Entry(productToEdit).State = System.Data.Entity.EntityState.Modified;
+            return db.SaveChanges();
         }
 
         public Product GetProduct(int id)
         {
-            throw new NotImplementedException();
+            var p = db.Products.Find(id);
+            if (p == null)
+                throw new Exception("Product not found");
+            return p;
+
         }
 
         public List<Product> GetProducts()
         {
-            throw new NotImplementedException();
+            return db.Products.ToList();
         }
 
         public Product SaveProduct(Product productToSave)
         {
-            throw new NotImplementedException();
+            if (productToSave == null)
+                throw new Exception("Invalid Data");
+            db.Products.Add(productToSave);
+            db.SaveChanges();
+            return productToSave;
+
         }
     }
 }
