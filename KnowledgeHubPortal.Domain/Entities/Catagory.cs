@@ -10,7 +10,7 @@ namespace KnowledgeHubPortal.Domain.Entities
     public class Catagory
     {
         public int CatagoryId { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Please enter catagory name")]
         [MaxLength(50)]
         public string Name { get; set; }
         [MaxLength(500)]

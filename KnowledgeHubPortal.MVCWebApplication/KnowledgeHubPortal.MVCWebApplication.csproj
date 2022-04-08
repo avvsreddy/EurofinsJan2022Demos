@@ -169,6 +169,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CatagoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -236,6 +237,9 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Catagories\Index.cshtml" />
+    <Content Include="Views\Catagories\Create.cshtml" />
+    <Content Include="Views\Catagories\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -254,6 +258,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KnowledgeHubPortal.Data\KnowledgeHubPortal.Data.csproj">
+      <Project>{5F125ADF-C435-4AEC-BE0F-757B90A5691E}</Project>
+      <Name>KnowledgeHubPortal.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\KnowledgeHubPortal.Domain\KnowledgeHubPortal.Domain.csproj">
       <Project>{c8d0d299-813c-4aab-9d8d-c75064db255f}</Project>
       <Name>KnowledgeHubPortal.Domain</Name>

@@ -12,6 +12,12 @@ namespace KnowledgeHubPortal.MVCWebApplication
     {
         protected void Application_Start()
         {
+            // remove view engine
+            //ViewEngines.Engines.Clear();
+            //ViewEngines.Engines.Add(new RazorViewEngine());
+
+            ViewEngines.Engines.RemoveAt(0); // removes ASPX View Engine
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

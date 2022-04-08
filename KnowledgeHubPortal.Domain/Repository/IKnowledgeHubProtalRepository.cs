@@ -10,5 +10,8 @@ namespace KnowledgeHubPortal.Domain.Repository
     public interface IKnowledgeHubProtalRepository
     {
         bool SaveCatagory(Catagory catagory);
+        List<Catagory> GetCatagories();
+        Catagory GetCatagory(int id);
+        bool RemoveCatagory(int id);
     }
 }

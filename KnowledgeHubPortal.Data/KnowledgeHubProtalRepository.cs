@@ -11,6 +11,27 @@ namespace KnowledgeHubPortal.Data
     public class KnowledgeHubProtalRepository : IKnowledgeHubProtalRepository
     {
         private readonly KnowledgeHubProtalDbContext db = new KnowledgeHubProtalDbContext();
+
+        public List<Catagory> GetCatagories()
+        {
+            return db.Catagories.ToList();
+        }
+
+        public Catagory GetCatagory(int id)
+        {
+            return db.Catagories.Find(id);
+        }
+
+        public bool RemoveCatagory(int id)
+        {
+            var cat = db.Catagories.Remove(GetCatagory(id));
+            db.SaveChanges();
+            if (cat != null)
+                return true;
+            return false;
+
+        }
+
         public bool SaveCatagory(Catagory catagory)
         {
             db.Catagories.Add(catagory);
