@@ -35,6 +35,10 @@ namespace KnowledgeHubPortal.MVCWebApplication.Controllers
         [HttpPost]
         public ActionResult Create(Catagory catagory)
         {
+
+            
+            //User.Identity.Name
+
             // Validate the input
             //if(string.IsNullOrEmpty(catagory.Name))
             if (!ModelState.IsValid) 
@@ -69,6 +73,30 @@ namespace KnowledgeHubPortal.MVCWebApplication.Controllers
             
             return RedirectToAction("Index");
 
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var catagoryToEdit = repo.GetCatagory(id);
+            return View(catagoryToEdit);
+        }
+        [HttpPost]
+        public ActionResult Edit(Catagory catagory)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Edit", catagory);
+            }
+
+            // persist the data
+            repo.EditCatagory(catagory);
+            // return view
+            //var catagories = repo.GetCatagories();
+
+            //return View("Index", catagories);
+            TempData["Message"] = $"{catagory.Name} has been modified successfully!";
+            return RedirectToAction("Index");
         }
     }
 }

@@ -12,6 +12,12 @@ namespace KnowledgeHubPortal.Data
     {
         private readonly KnowledgeHubProtalDbContext db = new KnowledgeHubProtalDbContext();
 
+        public void EditCatagory(Catagory catagory)
+        {
+            db.Entry(catagory).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+        }
+
         public List<Catagory> GetCatagories()
         {
             return db.Catagories.ToList();

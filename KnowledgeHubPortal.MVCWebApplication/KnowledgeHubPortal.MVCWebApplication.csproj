@@ -240,6 +240,7 @@
     <Content Include="Views\Catagories\Index.cshtml" />
     <Content Include="Views\Catagories\Create.cshtml" />
     <Content Include="Views\Catagories\Delete.cshtml" />
+    <Content Include="Views\Catagories\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
