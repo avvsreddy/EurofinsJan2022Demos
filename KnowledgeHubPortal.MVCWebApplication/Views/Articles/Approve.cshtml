@@ -1,0 +1,60 @@
+﻿@model IEnumerable<KnowledgeHubPortal.MVCWebApplication.Models.ArticleApproveViewModel>
+@using Humanizer
+@{
+    ViewBag.Title = "Approve";
+}
+
+<h2>Approve/Reject Articles</h2>
+
+<p>@TempData["Message"]</p>
+
+<form method="post">
+    <table class="table">
+        <tr>
+            <th>
+                Select
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Catagory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contributer)
+            </th>
+            <th>
+               @Html.DisplayNameFor(model => model.DateSubmitted)
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <input type="checkbox" name="articleid" value="@item.ArticleID" />
+                </td>
+                <td>
+                    <a href="@item.ArticleUrl" target="_blank">@item.Title</a>
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Catagory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contributer)
+                </td>
+                <td>
+                   @item.DateSubmitted
+                </td>
+
+            </tr>
+        }
+
+    </table>
+
+    <input type="submit" formaction="Approve" name="btnApprove" value="Approve" class="btn btn-success" />
+    <input type="submit" formaction="Reject" name="btnReject" value="Reject" class="btn btn-danger"/>
+</form>

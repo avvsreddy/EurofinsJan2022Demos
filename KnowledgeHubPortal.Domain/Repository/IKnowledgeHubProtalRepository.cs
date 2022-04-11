@@ -20,8 +20,14 @@ namespace KnowledgeHubPortal.Domain.Repository
 
         #region Articles Management
 
+        void SubmitArticle(Article article);
+        List<Article> BrowseArticles();
 
+        void ApproveArticles(List<int> articleIds);
 
+        void RejectArticles(List<int> articleIds);
+
+        List<Article> GetArticlesForApprove();
 
         #endregion
     }
