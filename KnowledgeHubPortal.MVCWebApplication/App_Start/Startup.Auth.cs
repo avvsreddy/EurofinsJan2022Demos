@@ -54,9 +54,9 @@ namespace KnowledgeHubPortal.MVCWebApplication
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "dfsdfasdfasdfasdfasdfasdfasdf",
+               appSecret: "sdfsdfsdfasdfasdfasdf");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

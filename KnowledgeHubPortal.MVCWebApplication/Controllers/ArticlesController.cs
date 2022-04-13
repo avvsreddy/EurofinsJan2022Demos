@@ -31,7 +31,7 @@ namespace KnowledgeHubPortal.MVCWebApplication.Controllers
 
             return View(articlesToBrowse);
         }
-
+        [Authorize]
         [HttpGet]
         public ActionResult Submit()
         {
@@ -45,6 +45,7 @@ namespace KnowledgeHubPortal.MVCWebApplication.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Submit(ArticleSubmitViewModel articleSubmitViewModel)
         {
 
@@ -73,6 +74,7 @@ namespace KnowledgeHubPortal.MVCWebApplication.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles ="admin")]
         public ActionResult Approve()
         {
             var articlesApproveVM = (from a in repo.GetArticlesForApprove()
@@ -90,6 +92,7 @@ namespace KnowledgeHubPortal.MVCWebApplication.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public ActionResult Approve(List<int> articleid)
         {
             if (articleid == null || articleid.Count == 0)
@@ -104,6 +107,7 @@ namespace KnowledgeHubPortal.MVCWebApplication.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin")]
         public ActionResult Reject(List<int> articleid)
         {
             if (articleid == null || articleid.Count == 0)

@@ -8,6 +8,20 @@ namespace KnowledgeHubPortal.MVCWebApplication
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+
+            //bundles.Add(new ScriptBundle("~/scriptbundle1")
+            //    .Include("~/Scripts/jquery-3.4.1.js")
+            //    .Include("~/Scripts/jquery.validate.js")
+            //    .Include("~/Scripts/jquery.validate.unobtrusive.js"));
+
+            //bundles.Add(new StyleBundle("~/stylebundle1")
+            //    .Include("~/Content/bootstrap.css")
+            //    .Include("~/Content/bootstrap-theme.min.css")
+            //    );
+
+
+            BundleTable.EnableOptimizations = true;
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 

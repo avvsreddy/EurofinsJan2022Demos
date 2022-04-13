@@ -9,14 +9,16 @@ using System.Web.Mvc;
 
 namespace KnowledgeHubPortal.MVCWebApplication.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class CatagoriesController : Controller
     {
         // GET: Catagories
 
         // IoC - DI
         IKnowledgeHubProtalRepository repo = new KnowledgeHubProtalRepository();
-
+        //[Authorize(Roles = "admin")]
         [HttpGet]
+        //[AllowAnonymous]
         public ActionResult Index()
         {
 
@@ -25,7 +27,7 @@ namespace KnowledgeHubPortal.MVCWebApplication.Controllers
 
             return View(catagories);
         }
-
+        //[Authorize(Roles = "admin")]
         [HttpGet]
         public ActionResult Create()
         {

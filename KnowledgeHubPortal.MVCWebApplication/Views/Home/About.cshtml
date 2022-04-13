@@ -1,7 +1,27 @@
 ﻿@{
     ViewBag.Title = "About";
+    //Layout = "~/Views/Shared/_Layout2.cshtml";
+    Layout = null;
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+
+@*<script src=""></script>
+    <script src=""></script>
+    <script src=""></script>
+
+    <link href="" rel="stylesheet" />
+    <link href="" rel="stylesheet" />
+
+    // Requests : 7
+    // Size : 482KB
+*@
+
+
+@Scripts.Render("~/scriptbundle1")
+@Styles.Render("~/stylebundle1")
 
 <p>Use this area to provide additional information.</p>
+
+
+
+
+
