@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.OData;
 
 namespace CoolProducts.API.Controllers
 {
@@ -26,10 +27,12 @@ namespace CoolProducts.API.Controllers
 
         // HttpGET ...api/CoolProducts = return all products without view
         //[HttpGet]
-        public List<Product> GetProducts()
+  [EnableQuery]
+      [Authorize]
+        public IQueryable<Product> GetProducts()
         {
             // fetch data from model and return
-            return db.Products.ToList();
+            return db.Products.AsQueryable();
 
         }
 
@@ -47,10 +50,10 @@ namespace CoolProducts.API.Controllers
         public IHttpActionResult GetProduct(int id)
         {
             var p = db.Products.Find(id);
-            if(p == null)
+            if (p == null)
             {
                 // return http status code 404
-                return NotFound(); 
+                return NotFound();
             }
 
             // return data with http status code 200
@@ -80,7 +83,7 @@ namespace CoolProducts.API.Controllers
                 return NotFound();
             return Ok(products);
         }
-        // Lab 3: get all producgs by category
+        //// Lab 3: get all producgs by category
         [Route("category/{cat}")]
         public IHttpActionResult GetProductsByCategory(string cat)
         {
@@ -89,27 +92,27 @@ namespace CoolProducts.API.Controllers
                 return NotFound();
             return Ok(products);
         }
-        // Lab 4: get costliest product
-        // GET api/coolproducts/costliest
+        //// Lab 4: get costliest product
+        //// GET api/coolproducts/costliest
         [Route("costliest")]
         public IHttpActionResult GetCostliestProduct()
         {
             return Ok(db.Products.OrderByDescending(p => p.Cost).FirstOrDefault());
         }
-        // Lab 5: get cheapest product
+        //// Lab 5: get cheapest product
         [Route("cheapest")]
         public IHttpActionResult GetCheapestProduct()
         {
             return Ok(db.Products.OrderBy(p => p.Cost).FirstOrDefault());
         }
-        // Lab 6: get products between min and max cost
+        //// Lab 6: get products between min and max cost
         [Route("costbetween/min/{min}/max/{max}")]
         public IHttpActionResult GetProducsCostRange(int min, int max)
         {
             var products = from p in db.Products
                            where p.Cost >= min && p.Cost <= max
                            select p;
-            if(products == null || products.Count() == 0)
+            if (products == null || products.Count() == 0)
             {
                 return NotFound();
             }

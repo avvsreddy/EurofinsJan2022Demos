@@ -89,6 +89,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web API Demos", "Web API De
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolProducts.API", "CoolProducts.API\CoolProducts.API.csproj", "{520A7751-1ECE-48C7-8D60-48566E385C1E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IoC Demo", "IoC Demo", "{8EB3D92F-B1C9-4773-B4F0-A4CCAA9599F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoCDemoWebApplication", "IoCDemoWebApplication\IoCDemoWebApplication.csproj", "{ED6EA6DE-229D-4CD8-9B51-C8C5497B01A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -215,6 +219,10 @@ Global
 		{520A7751-1ECE-48C7-8D60-48566E385C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{520A7751-1ECE-48C7-8D60-48566E385C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{520A7751-1ECE-48C7-8D60-48566E385C1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED6EA6DE-229D-4CD8-9B51-C8C5497B01A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED6EA6DE-229D-4CD8-9B51-C8C5497B01A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED6EA6DE-229D-4CD8-9B51-C8C5497B01A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED6EA6DE-229D-4CD8-9B51-C8C5497B01A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -252,6 +260,7 @@ Global
 		{C8D0D299-813C-4AAB-9D8D-C75064DB255F} = {B55E4A4D-E46E-478D-AB03-67DF6DA185E9}
 		{5F125ADF-C435-4AEC-BE0F-757B90A5691E} = {BE57F60E-1ABD-494D-88AA-74E44B126911}
 		{520A7751-1ECE-48C7-8D60-48566E385C1E} = {12B4BD53-B39C-4DF0-BEB7-D08A62D08B61}
+		{ED6EA6DE-229D-4CD8-9B51-C8C5497B01A3} = {8EB3D92F-B1C9-4773-B4F0-A4CCAA9599F4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8EBF7831-6F01-467C-919F-EA5C3D0024B6}
